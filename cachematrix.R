@@ -19,6 +19,7 @@
 # t$setInverse(matrix(c(1, 1, 1, 1), nrow = 2, ncol = 2))
 
 makeCacheMatrix <- function(x = matrix()) {
+  # Check if the matrix has equal number of rows and columns (if not, then the matrix can't be solved). 
   if (dim(x)[1] != dim(x)[2]) {
     stop ("The number of columns of the matrix must be the same as the number of rows!")
   }
@@ -30,7 +31,7 @@ makeCacheMatrix <- function(x = matrix()) {
       stop ("The number of columns of the matrix must be the same as the number of rows!")
     }
     
-    x <<- matrixValue
+    x <<- matrixValue # Addressing variables outside the default environment...
     inverseMatrixValue <<- NULL
   }
   
